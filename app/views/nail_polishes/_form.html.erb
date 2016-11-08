@@ -1,0 +1,42 @@
+<%= form_for(nail_polish) do |f| %>
+  <% if nail_polish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nail_polish.errors.count, "error") %> prohibited this nail_polish from being saved:</h2>
+
+      <ul>
+      <% nail_polish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size %>
+    <%= f.text_field :size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :brand_id %>
+    <%= f.text_field :brand_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :collection_id %>
+    <%= f.text_field :collection_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

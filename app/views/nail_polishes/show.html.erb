@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @nail_polish.name %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @nail_polish.size %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @nail_polish.color %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @nail_polish.brand %>
+</p>
+
+<p>
+  <strong>Collection:</strong>
+  <%= @nail_polish.collection %>
+</p>
+
+<%= link_to 'Edit', edit_nail_polish_path(@nail_polish) %> |
+<%= link_to 'Back', nail_polishes_path %>

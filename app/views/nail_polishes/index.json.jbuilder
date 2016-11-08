@@ -1,0 +1,1 @@
+json.array! @nail_polishes, partial: 'nail_polishes/nail_polish', as: :nail_polish
