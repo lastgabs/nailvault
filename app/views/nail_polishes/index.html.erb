@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nail Polishes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Color</th>
+      <th>Brand</th>
+      <th>Collection</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nail_polishes.each do |nail_polish| %>
+      <tr>
+        <td><%= nail_polish.name %></td>
+        <td><%= nail_polish.size %></td>
+        <td><%= nail_polish.color %></td>
+        <td><%= nail_polish.brand %></td>
+        <td><%= nail_polish.collection %></td>
+        <td><%= link_to 'Show', nail_polish %></td>
+        <td><%= link_to 'Edit', edit_nail_polish_path(nail_polish) %></td>
+        <td><%= link_to 'Destroy', nail_polish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nail Polish', new_nail_polish_path %>

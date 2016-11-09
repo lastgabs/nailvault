@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108044210) do
+ActiveRecord::Schema.define(version: 20161108054545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,19 @@ ActiveRecord::Schema.define(version: 20161108044210) do
     t.index ["brand_id"], name: "index_collections_on_brand_id", using: :btree
   end
 
+  create_table "nail_polishes", force: :cascade do |t|
+    t.string   "name",          null: false
+    t.string   "size"
+    t.string   "color"
+    t.integer  "brand_id"
+    t.integer  "collection_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["brand_id"], name: "index_nail_polishes_on_brand_id", using: :btree
+    t.index ["collection_id"], name: "index_nail_polishes_on_collection_id", using: :btree
+  end
+
   add_foreign_key "collections", "brands"
+  add_foreign_key "nail_polishes", "brands"
+  add_foreign_key "nail_polishes", "collections"
 end
