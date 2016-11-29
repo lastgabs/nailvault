@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'nail_polishes#index'
+
   resources :nail_polishes
   resources :collections
   resources :brands

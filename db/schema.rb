@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 20161108054545) do
     t.index ["collection_id"], name: "index_nail_polishes_on_collection_id", using: :btree
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.string   "name"
+    t.string   "image_url"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
+    t.index ["provider"], name: "index_users_on_provider", using: :btree
+    t.index ["uid"], name: "index_users_on_uid", using: :btree
+  end
+
   add_foreign_key "collections", "brands"
   add_foreign_key "nail_polishes", "brands"
   add_foreign_key "nail_polishes", "collections"
