@@ -1,1 +1,0 @@
-json.partial! "nail_polishes/nail_polish", nail_polish: @nail_polish
