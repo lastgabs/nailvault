@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108054545) do
+ActiveRecord::Schema.define(version: 20161231063135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,15 @@ ActiveRecord::Schema.define(version: 20161108054545) do
   create_table "brands", force: :cascade do |t|
     t.string   "name"
     t.string   "website"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "maker"
+    t.string   "country",                    null: false
+    t.integer  "status",         default: 0, null: false
+    t.string   "instagram"
+    t.string   "facebook_page"
+    t.string   "facebook_group"
+    t.string   "twitter"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -41,19 +48,6 @@ ActiveRecord::Schema.define(version: 20161108054545) do
     t.datetime "updated_at",    null: false
     t.index ["brand_id"], name: "index_nail_polishes_on_brand_id", using: :btree
     t.index ["collection_id"], name: "index_nail_polishes_on_collection_id", using: :btree
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "provider",   null: false
-    t.string   "uid",        null: false
-    t.string   "name"
-    t.string   "image_url"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
-    t.index ["provider"], name: "index_users_on_provider", using: :btree
-    t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
 
   add_foreign_key "collections", "brands"
