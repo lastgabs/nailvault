@@ -9,6 +9,29 @@
   </head>
 
   <body>
+    <nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
+      <%= link_to 'NailVault', root_path, class: 'navbar-brand' %>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= current_user.email %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: 'nav-link' %>
+          </li>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
