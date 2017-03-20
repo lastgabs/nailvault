@@ -11,7 +11,7 @@ supermoon_brand = Brand.create!(
   website: "https://www.thehowlingboutique.com/sml/",
   maker: "Mardi Carruth",
   country: "US",
-  status: :open,
+  status: :active,
   instagram: "https://www.instagram.com/thehowlingboutique/",
   facebook_page: "https://www.facebook.com/TheHowlingBoutique",
 )
