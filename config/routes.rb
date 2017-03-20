@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'nail_polishes#index'
 
   resources :nail_polishes
